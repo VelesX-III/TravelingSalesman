@@ -1,0 +1,267 @@
+[
+  {
+    "State": "AL",
+    "Latitude": 32.361538,
+    "Longitude": -86.279118
+  },
+  {
+    "State": "AK",
+    "Latitude": 58.301935,
+    "Longitude": -134.41974
+  },
+  {
+    "State": "AZ",
+    "Latitude": 33.448457,
+    "Longitude": -112.073844
+  },
+  {
+    "State": "AR",
+    "Latitude": 34.736009,
+    "Longitude": -92.331122
+  },
+  {
+    "State": "CA",
+    "Latitude": 38.555605,
+    "Longitude": -121.468926
+  },
+  {
+    "State": "CO",
+    "Latitude": 39.7391667,
+    "Longitude": -104.984167
+  },
+  {
+    "State": "CT",
+    "Latitude": 41.767,
+    "Longitude": -72.677
+  },
+  {
+    "State": "DC",
+    "Latitude": 38.913,
+    "Longitude": -77.013
+  },
+  {
+    "State": "DE",
+    "Latitude": 39.161921,
+    "Longitude": -75.526755
+  },
+  {
+    "State": "FL",
+    "Latitude": 30.4518,
+    "Longitude": -84.27277
+  },
+  {
+    "State": "GA",
+    "Latitude": 33.76,
+    "Longitude": -84.39
+  },
+  {
+    "State": "HI",
+    "Latitude": 21.30895,
+    "Longitude": -157.826182
+  },
+  {
+    "State": "ID",
+    "Latitude": 43.613739,
+    "Longitude": -116.237651
+  },
+  {
+    "State": "IL",
+    "Latitude": 39.78325,
+    "Longitude": -89.650373
+  },
+  {
+    "State": "IN",
+    "Latitude": 39.790942,
+    "Longitude": -86.147685
+  },
+  {
+    "State": "IA",
+    "Latitude": 41.590939,
+    "Longitude": -93.620866
+  },
+  {
+    "State": "KS",
+    "Latitude": 39.04,
+    "Longitude": -95.69
+  },
+  {
+    "State": "KY",
+    "Latitude": 38.197274,
+    "Longitude": -84.86311
+  },
+  {
+    "State": "LA",
+    "Latitude": 30.45809,
+    "Longitude": -91.140229
+  },
+  {
+    "State": "ME",
+    "Latitude": 44.323535,
+    "Longitude": -69.765261
+  },
+  {
+    "State": "MD",
+    "Latitude": 38.972945,
+    "Longitude": -76.501157
+  },
+  {
+    "State": "MA",
+    "Latitude": 42.2352,
+    "Longitude": -71.0275
+  },
+  {
+    "State": "MI",
+    "Latitude": 42.7335,
+    "Longitude": -84.5467
+  },
+  {
+    "State": "MN",
+    "Latitude": 44.95,
+    "Longitude": -93.094
+  },
+  {
+    "State": "MS",
+    "Latitude": 32.32,
+    "Longitude": -90.207
+  },
+  {
+    "State": "MO",
+    "Latitude": 38.572954,
+    "Longitude": -92.189283
+  },
+  {
+    "State": "MT",
+    "Latitude": 46.595805,
+    "Longitude": -112.027031
+  },
+  {
+    "State": "NE",
+    "Latitude": 40.809868,
+    "Longitude": -96.675345
+  },
+  {
+    "State": "NV",
+    "Latitude": 39.160949,
+    "Longitude": -119.753877
+  },
+  {
+    "State": "NH",
+    "Latitude": 43.220093,
+    "Longitude": -71.549127
+  },
+  {
+    "State": "NJ",
+    "Latitude": 40.221741,
+    "Longitude": -74.756138
+  },
+  {
+    "State": "NM",
+    "Latitude": 35.667231,
+    "Longitude": -105.964575
+  },
+  {
+    "State": "NY",
+    "Latitude": 42.659829,
+    "Longitude": -73.781339
+  },
+  {
+    "State": "NC",
+    "Latitude": 35.771,
+    "Longitude": -78.638
+  },
+  {
+    "State": "ND",
+    "Latitude": 48.813343,
+    "Longitude": -100.779004
+  },
+  {
+    "State": "OH",
+    "Latitude": 39.962245,
+    "Longitude": -83.000647
+  },
+  {
+    "State": "OK",
+    "Latitude": 35.482309,
+    "Longitude": -97.534994
+  },
+  {
+    "State": "OR",
+    "Latitude": 44.931109,
+    "Longitude": -123.029159
+  },
+  {
+    "State": "PA",
+    "Latitude": 40.269789,
+    "Longitude": -76.875613
+  },
+  {
+    "State": "PR",
+    "Latitude": 18.2208,
+    "Longitude": -66.5901
+  },
+  {
+    "State": "RI",
+    "Latitude": 41.82355,
+    "Longitude": -71.422132
+  },
+  {
+    "State": "SC",
+    "Latitude": 34,
+    "Longitude": -81.035
+  },
+  {
+    "State": "SD",
+    "Latitude": 44.367966,
+    "Longitude": -100.336378
+  },
+  {
+    "State": "TN",
+    "Latitude": 36.165,
+    "Longitude": -86.784
+  },
+  {
+    "State": "TX",
+    "Latitude": 30.266667,
+    "Longitude": -97.75
+  },
+  {
+    "State": "US",
+    "Latitude": 38.913,
+    "Longitude": 77.013
+  },
+  {
+    "State": "UT",
+    "Latitude": 40.7547,
+    "Longitude": -111.892622
+  },
+  {
+    "State": "VT",
+    "Latitude": 44.26639,
+    "Longitude": -72.57194
+  },
+  {
+    "State": "VA",
+    "Latitude": 37.54,
+    "Longitude": -77.46
+  },
+  {
+    "State": "WA",
+    "Latitude": 47.042418,
+    "Longitude": -122.893077
+  },
+  {
+    "State": "WV",
+    "Latitude": 38.349497,
+    "Longitude": -81.633294
+  },
+  {
+    "State": "WI",
+    "Latitude": 43.074722,
+    "Longitude": -89.384444
+  },
+  {
+    "State": "WY",
+    "Latitude": 41.145548,
+    "Longitude": -104.802042
+  }
+]
