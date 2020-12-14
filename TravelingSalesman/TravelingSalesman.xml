@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TravelingSalesman</name>
+    </assembly>
+    <members>
+        <member name="T:TravelingSalesman.Circuit">
+            <summary>
+            Represents a potential solution to the problem.
+            </summary>
+        </member>
+        <member name="P:TravelingSalesman.Circuit.Path">
+            <summary>
+            The order in which each <see cref="T:TravelingSalesman.City"/> is visited.
+            </summary>
+        </member>
+        <member name="P:TravelingSalesman.Circuit.Distance">
+            <summary>
+            Gets the total distance traveled over the <see cref="P:TravelingSalesman.Circuit.Path"/>.
+            </summary>
+        </member>
+        <member name="M:TravelingSalesman.Circuit.#ctor">
+            <summary>
+            Constructs a new <see cref="T:TravelingSalesman.Circuit"/> with an empty <see cref="P:TravelingSalesman.Circuit.Path"/>.
+            </summary>
+        </member>
+        <member name="M:TravelingSalesman.Circuit.#ctor(System.Collections.Generic.IEnumerable{TravelingSalesman.City})">
+            <summary>
+            Constructs a new <see cref="T:TravelingSalesman.Circuit"/> from a collection that can be cast as the <see cref="P:TravelingSalesman.Circuit.Path"/>.
+            </summary>
+            <param name="path">A collection representing the path.</param>
+        </member>
+        <member name="M:TravelingSalesman.Circuit.Initialize">
+            <summary>
+            Initializes the <see cref="T:TravelingSalesman.Circuit"/> with a random <see cref="P:TravelingSalesman.Circuit.Path"/>.
+            </summary>
+            <returns>A reference to the initialized <see cref="T:TravelingSalesman.Circuit"/>.</returns>
+        </member>
+        <member name="M:TravelingSalesman.Circuit.PrintPath">
+            <summary>
+            Prints the path traveled on standard out.
+            </summary>
+        </member>
+        <member name="M:TravelingSalesman.Circuit.op_Multiply(TravelingSalesman.Circuit,TravelingSalesman.Circuit)">
+            <summary>
+            Produces a new <see cref="T:TravelingSalesman.Circuit"/> whose <see cref="P:TravelingSalesman.Circuit.Path"/> is formed from those of its operands.
+            Every other <see cref="T:TravelingSalesman.City"/> in the <see cref="P:TravelingSalesman.Circuit.Path"/> of the first operand is spliced in order with the remaining cities of the second.
+            </summary>
+            <param name="circuitA">The <see cref="T:TravelingSalesman.Circuit"/> whose every other <see cref="T:TravelingSalesman.City"/> will be present in the result <see cref="P:TravelingSalesman.Circuit.Path"/>.</param>
+            <param name="circuitB">The <see cref="T:TravelingSalesman.Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="P:TravelingSalesman.Circuit.Path"/> indices.</param>
+            <returns>A <see cref="T:TravelingSalesman.Circuit"/> with a <see cref="P:TravelingSalesman.Circuit.Path"/> that combines the paths of its operands.</returns>
+            <remarks>This operation is non-Abelian.</remarks>
+        </member>
+        <member name="T:TravelingSalesman.City">
+            <summary>
+            Represents a capital city as a vertex.
+            </summary>
+        </member>
+        <member name="P:TravelingSalesman.City.State">
+            <summary>
+            The state in the capital <see cref="T:TravelingSalesman.City"/> lies in.
+            </summary>
+        </member>
+        <member name="P:TravelingSalesman.City.Latitude">
+            <summary>
+            The latitude coordinate of the <see cref="T:TravelingSalesman.City"/>.
+            </summary>
+        </member>
+        <member name="P:TravelingSalesman.City.Longitude">
+            <summary>
+            The longitude coordinate of the <see cref="T:TravelingSalesman.City"/>.
+            </summary>
+        </member>
+        <member name="M:TravelingSalesman.City.ToString">
+            <summary>
+            Represents the <see cref="T:TravelingSalesman.City"/> as a string.
+            </summary>
+            <returns>The <see cref="P:TravelingSalesman.City.State"/> as a string.</returns>
+        </member>
+        <member name="T:TravelingSalesman.Extensions">
+            <summary>
+            Contains extension methods.
+            </summary>
+        </member>
+        <member name="F:TravelingSalesman.Extensions.Random">
+            <summary>
+            The random number generator to use for permuting.
+            </summary>
+        </member>
+        <member name="M:TravelingSalesman.Extensions.Permute``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Permutes the collection's elements randomly.
+            </summary>
+            <typeparam name="T">The generic type parameter of the collection.</typeparam>
+            <param name="collection">The collection to permute.</param>
+            <returns>A generic <see cref="T:System.Collections.Generic.List`1"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
+        </member>
+        <member name="M:TravelingSalesman.Extensions.Permute``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Permutes the collection's elements randomly.
+            </summary>
+            <typeparam name="T">The generic type parameter of the collection.</typeparam>
+            <param name="collection">The collection to permute.</param>
+            <returns>A generic <see cref="T:System.Collections.Generic.IEnumerable`1"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
+        </member>
+        <member name="M:TravelingSalesman.Extensions.PermutePart``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
+            <summary>
+            Permutes the elements between and including the start and end indices randomly.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection">The collection to permute.</param>
+            <param name="startIndex">The start of the range of elements to permute.</param>
+            <param name="endIndex">The end of the range of elements to permute.</param>
+            <returns>A generic <see cref="T:System.Collections.Generic.List`1"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
+        </member>
+        <member name="M:TravelingSalesman.Extensions.PermutePart``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Permutes the elements between and including the start and end indices randomly.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection">The collection to permute.</param>
+            <param name="startIndex">The start of the range of elements to permute.</param>
+            <param name="endIndex">The end of the range of elements to permute.</param>
+            <returns>A generic <see cref="T:System.Collections.Generic.IEnumerable`1"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
+        </member>
+    </members>
+</doc>
