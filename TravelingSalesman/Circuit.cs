@@ -20,7 +20,7 @@ namespace TravelingSalesman
         /// <summary>
         /// The order in which each <see cref="City"/> is visited.
         /// </summary>
-        public List<City> Path { get; private set; }
+        public List<City> Path { get; set; }
         /// <summary>
         /// Gets the total distance traveled over the <see cref="Path"/>.
         /// </summary>
@@ -82,7 +82,7 @@ namespace TravelingSalesman
         {
             if (circuitA.Path.Count == 0 || circuitB.Path.Count == 0 || circuitA.Path.Count != circuitB.Path.Count)
             {
-                throw new Exception("Paths incompatible for crossing.");
+                throw new ArgumentException("Paths incompatible for crossing.");
             }
 
             City[] cities = new City[circuitA.Path.Count];

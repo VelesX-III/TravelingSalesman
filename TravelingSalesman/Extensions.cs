@@ -20,10 +20,10 @@ namespace TravelingSalesman
         /// </summary>
         /// <typeparam name="T">The generic type parameter of the collection.</typeparam>
         /// <param name="collection">The collection to permute.</param>
-        /// <returns>A generic <see cref="System.Collections.Generic.List{T}"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
+        /// <returns>A generic <see cref="List{T}"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
         public static List<T> Permute<T>(this List<T> collection)
         {
-            Dictionary<double, T> keyValuePairs = new System.Collections.Generic.Dictionary<double, T>();
+            Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             foreach (T item in collection)
             {
                 keyValuePairs.Add(Random.NextDouble(), item);
@@ -40,10 +40,10 @@ namespace TravelingSalesman
         /// </summary>
         /// <typeparam name="T">The generic type parameter of the collection.</typeparam>
         /// <param name="collection">The collection to permute.</param>
-        /// <returns>A generic <see cref="System.Collections.Generic.IEnumerable{T}"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
+        /// <returns>A generic <see cref="IEnumerable{T}"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
         public static IEnumerable<T> Permute<T>(this IEnumerable<T> collection)
         {
-            Dictionary<double, T> keyValuePairs = new System.Collections.Generic.Dictionary<double, T>();
+            Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             foreach (T item in collection)
             {
                 keyValuePairs.Add(Random.NextDouble(), item);
@@ -63,10 +63,10 @@ namespace TravelingSalesman
         /// <param name="collection">The collection to permute.</param>
         /// <param name="startIndex">The start of the range of elements to permute.</param>
         /// <param name="endIndex">The end of the range of elements to permute.</param>
-        /// <returns>A generic <see cref="System.Collections.Generic.List{T}"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
+        /// <returns>A generic <see cref="List{T}"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
         public static List<T> PermutePart<T>(this List<T> collection, int startIndex, int endIndex)
         {
-            Dictionary<double, T> keyValuePairs = new System.Collections.Generic.Dictionary<double, T>();
+            Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             for (int i = startIndex; i <= endIndex; i++)
             {
                 keyValuePairs.Add(Random.NextDouble(), collection[i]);
@@ -93,10 +93,10 @@ namespace TravelingSalesman
         /// <param name="collection">The collection to permute.</param>
         /// <param name="startIndex">The start of the range of elements to permute.</param>
         /// <param name="endIndex">The end of the range of elements to permute.</param>
-        /// <returns>A generic <see cref="System.Collections.Generic.IEnumerable{T}"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
+        /// <returns>A generic <see cref="IEnumerable{T}"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
         public static IEnumerable<T> PermutePart<T>(this IEnumerable<T> collection, int startIndex, int endIndex)
         {
-            Dictionary<double, T> keyValuePairs = new System.Collections.Generic.Dictionary<double, T>();
+            Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             for (int i = startIndex; i <= endIndex; i++)
             {
                 keyValuePairs.Add(Random.NextDouble(), collection.ElementAt(i));
