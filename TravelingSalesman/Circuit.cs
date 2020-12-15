@@ -14,6 +14,10 @@ namespace TravelingSalesman
     public class Circuit
     {
         /// <summary>
+        /// The random number generator to use across all instances of the class.
+        /// </summary>
+        private static Random Random = new Random();
+        /// <summary>
         /// The order in which each <see cref="City"/> is visited.
         /// </summary>
         public List<City> Path { get; private set; }
@@ -73,7 +77,7 @@ namespace TravelingSalesman
         /// <param name="circuitA">The <see cref="Circuit"/> whose every other <see cref="City"/> will be present in the result <see cref="Path"/>.</param>
         /// <param name="circuitB">The <see cref="Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="Path"/> indices.</param>
         /// <returns>A <see cref="Circuit"/> with a <see cref="Path"/> that combines the paths of its operands.</returns>
-        /// <remarks>This operation is non-Abelian.</remarks>
+        /// <remarks>This operation is non-Abelian and does not alter its operands.</remarks>
         public static Circuit operator *(Circuit circuitA, Circuit circuitB)
         {
             if (circuitA.Path.Count == 0 || circuitB.Path.Count == 0 || circuitA.Path.Count != circuitB.Path.Count)
@@ -83,14 +87,18 @@ namespace TravelingSalesman
 
             City[] cities = new City[circuitA.Path.Count];
             List<City> remainder = circuitB.Path.ToList(); //Seems redundant, but forces copy-initialization.
-            for (int i = 0; i < circuitA.Path.Count; i += 2)
+            double threshold = Random.NextDouble();
+            for (int i = 0; i < circuitA.Path.Count; i++)
             {
-                cities[i] = circuitA.Path[i];
-                remainder.Remove(circuitA.Path[i]);
+                if (Random.NextDouble() <= threshold)
+                {
+                    cities[i] = circuitA.Path[i];
+                    remainder.RemoveAll(c => c.State == circuitA.Path[i].State);
+                }
             }
             Queue<City> queue = new Queue<City>();
             remainder.ForEach(c => queue.Enqueue(c));
-            for (int i = 1; i < cities.Length; i += 2)
+            for (int i = 0; i < cities.Length; i++)
             {
                 if (cities[i] is null)
                 {

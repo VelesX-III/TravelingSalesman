@@ -9,6 +9,11 @@
             Represents a potential solution to the problem.
             </summary>
         </member>
+        <member name="F:TravelingSalesman.Circuit.Random">
+            <summary>
+            The random number generator to use across all instances of the class.
+            </summary>
+        </member>
         <member name="P:TravelingSalesman.Circuit.Path">
             <summary>
             The order in which each <see cref="T:TravelingSalesman.City"/> is visited.
@@ -49,7 +54,7 @@
             <param name="circuitA">The <see cref="T:TravelingSalesman.Circuit"/> whose every other <see cref="T:TravelingSalesman.City"/> will be present in the result <see cref="P:TravelingSalesman.Circuit.Path"/>.</param>
             <param name="circuitB">The <see cref="T:TravelingSalesman.Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="P:TravelingSalesman.Circuit.Path"/> indices.</param>
             <returns>A <see cref="T:TravelingSalesman.Circuit"/> with a <see cref="P:TravelingSalesman.Circuit.Path"/> that combines the paths of its operands.</returns>
-            <remarks>This operation is non-Abelian.</remarks>
+            <remarks>This operation is non-Abelian and does not alter its operands.</remarks>
         </member>
         <member name="T:TravelingSalesman.City">
             <summary>

@@ -14,7 +14,7 @@ namespace TravelingSalesman
         /// <summary>
         /// The random number generator to use for permuting.
         /// </summary>
-        public static readonly Random Random = new Random();
+        private static readonly Random Random = new Random();
         /// <summary>
         /// Permutes the collection's elements randomly.
         /// </summary>
