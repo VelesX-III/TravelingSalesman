@@ -74,7 +74,7 @@ namespace TravelingSalesman
         /// Produces a new <see cref="Circuit"/> whose <see cref="Path"/> is formed from those of its operands.
         /// Every other <see cref="City"/> in the <see cref="Path"/> of the first operand is spliced in order with the remaining cities of the second.
         /// </summary>
-        /// <param name="circuitA">The <see cref="Circuit"/> whose <see cref="City"/> instances have a chance to be present in the result <see cref="Path"/>.</param>
+        /// <param name="circuitA">The <see cref="Circuit"/> whose contiguous <see cref="City"/> instances have a chance to be present in the result <see cref="Path"/>.</param>
         /// <param name="circuitB">The <see cref="Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="Path"/> indices.</param>
         /// <returns>A <see cref="Circuit"/> with a <see cref="Path"/> that combines the paths of its operands.</returns>
         /// <remarks>This binary operation is non-Abelian and does not alter its operands.</remarks>
@@ -87,14 +87,12 @@ namespace TravelingSalesman
 
             City[] cities = new City[circuitA.Path.Count];
             List<City> remainder = circuitB.Path.ToList(); //Seems redundant, but forces copy-initialization.
-            double threshold = .5;
-            for (int i = 0; i < circuitA.Path.Count; i++)
+            int upperBound = Random.Next(0, circuitA.Path.Count);
+            int lowerBound = Random.Next(0, upperBound);
+            for (int i = lowerBound; i <= upperBound; i++)
             {
-                if (Random.NextDouble() <= threshold)
-                {
-                    cities[i] = circuitA.Path[i];
-                    remainder.RemoveAll(c => c.State == circuitA.Path[i].State);
-                }
+                cities[i] = circuitA.Path[i];
+                remainder.RemoveAll(c => c.State == circuitA.Path[i].State);
             }
             Queue<City> queue = new Queue<City>();
             remainder.ForEach(c => queue.Enqueue(c));
