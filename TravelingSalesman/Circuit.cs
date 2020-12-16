@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -57,7 +58,7 @@ namespace TravelingSalesman
         /// <returns>A reference to the initialized <see cref="Circuit"/>.</returns>
         public Circuit Initialize()
         {
-            Path = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(@"C:\Users\Administrator\source\repos\TravelingSalesman\TravelingSalesman\Capitals.json")).Permute();
+            Path = JsonConvert.DeserializeObject<List<City>>(File.ReadAllText(ConfigurationManager.AppSettings["VertexList"])).Permute();
             return this;
         }
         /// <summary>
