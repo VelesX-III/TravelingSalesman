@@ -77,6 +77,7 @@ namespace TravelingSalesman
         /// </summary>
         /// <param name="circuitA">The <see cref="Circuit"/> whose <see cref="City"/> instances have a chance to be present in the result <see cref="Path"/>.</param>
         /// <param name="circuitB">The <see cref="Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="Path"/> indices.</param>
+        /// <exception cref="ArgumentException">Thrown if <see cref="Path"/>s are of zero or unequal length.</exception>
         /// <returns>A <see cref="Circuit"/> with a <see cref="Path"/> that combines the paths of its operands.</returns>
         /// <remarks>This binary operation is non-Abelian and does not alter its operands.</remarks>
         public static Circuit operator *(Circuit circuitA, Circuit circuitB)

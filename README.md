@@ -1,4 +1,7 @@
-# TravelingSalesman
+# Traveling Salesman
+
+## Before attempting to use this program, please adjust the path to the JSON file containing the city data in app.config!!
+
 Contains the source for the final project, a GA solver for the traveling salesman problem.
 
 Upon running the program, the user can exit at any time by hitting the enter key. This will print the most recent solution attained. Every time the solution changes from one iteration to the next, the program will beep.
