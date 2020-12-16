@@ -26,7 +26,19 @@ namespace TravelingSalesman
             Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             foreach (T item in collection)
             {
-                keyValuePairs.Add(Random.NextDouble(), item);
+                try
+                {
+                    keyValuePairs.Add(Random.NextDouble(), item);
+                }
+                catch (ArgumentException)
+                {
+                    double key = Random.NextDouble();
+                    while (keyValuePairs.Keys.Contains(key))
+                    {
+                        key = Random.NextDouble();
+                    }
+                    keyValuePairs.Add(key, item);
+                }
             }
             List<T> results = new List<T>();
             foreach (double key in keyValuePairs.Keys.OrderBy(k => k))
@@ -46,7 +58,19 @@ namespace TravelingSalesman
             Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             foreach (T item in collection)
             {
-                keyValuePairs.Add(Random.NextDouble(), item);
+                try
+                {
+                    keyValuePairs.Add(Random.NextDouble(), item);
+                }
+                catch (ArgumentException)
+                {
+                    double key = Random.NextDouble();
+                    while (keyValuePairs.Keys.Contains(key))
+                    {
+                        key = Random.NextDouble();
+                    }
+                    keyValuePairs.Add(key, item);
+                }
             }
             T[] results = new T[collection.Count()];
             List<double> keys = keyValuePairs.Keys.OrderBy(k => k).ToList();
@@ -111,7 +135,19 @@ namespace TravelingSalesman
             Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             for (int i = startIndex; i <= endIndex; i++)
             {
-                keyValuePairs.Add(Random.NextDouble(), collection.ElementAt(i));
+                try
+                {
+                    keyValuePairs.Add(Random.NextDouble(), collection.ElementAt(i));
+                }
+                catch (ArgumentException)
+                {
+                    double key = Random.NextDouble();
+                    while (keyValuePairs.Keys.Contains(key))
+                    {
+                        key = Random.NextDouble();
+                    }
+                    keyValuePairs.Add(key, collection.ElementAt(i));
+                }
             }
             T[] results = new T[collection.Count()];
             for (int i = 0; i < startIndex; i++)
