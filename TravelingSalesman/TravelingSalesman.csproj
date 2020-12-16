@@ -9,6 +9,10 @@
     <DocumentationFile>C:\Users\Administrator\source\repos\TravelingSalesman\TravelingSalesman\TravelingSalesman.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Administrator\source\repos\TravelingSalesman\TravelingSalesman\TravelingSalesman.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>

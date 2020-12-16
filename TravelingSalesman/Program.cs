@@ -19,7 +19,8 @@ namespace TravelingSalesman
             Task.Run(() => { Console.ReadLine(); writeAccess.WaitOne(); individuals.First().PrintPath(); Environment.Exit(0); }); //Listen for early exit sequence.
             Random random = new Random(); //Used for random number generation.
 
-            for (int i = 0; i < population; i++) { individuals.Add(new Circuit().Initialize()); }
+            for (int i = 0; i < population; i++)
+            { individuals.Add(new Circuit().Initialize()); }
             double latestDistance = individuals.Min(i => i.Distance);
             for (int i = 0; i < iterations; i++)
             {
@@ -47,11 +48,13 @@ namespace TravelingSalesman
                     }
                     individuals.Add(child);
                 }
-                //Perform a tournament selection with random matching. Note the "-" operator.
                 List<Circuit> nextGeneration = new List<Circuit>();
-                for (int j = 0; j < population - elites; j++) { nextGeneration.Add(individuals.RandomChoice() - individuals.RandomChoice()); }
-                //Automatically include the elites.
+                //Elites bypass and are excluded from selection.
                 nextGeneration.AddRange(individuals.OrderBy(i => i.Distance).Take(elites));
+                individuals = individuals.OrderBy(i => i.Distance).TakeLast(individuals.Count - elites).ToList();
+                //Non-elites participate in tournament selection with replacement.
+                for (int j = 0; j < population - elites; j++)
+                { nextGeneration.Add(individuals.RandomChoice() - individuals.RandomChoice()); }
                 individuals = nextGeneration;
             }
             individuals = individuals.OrderBy(c => c.Distance).ToList();

@@ -74,7 +74,7 @@ namespace TravelingSalesman
         /// Produces a new <see cref="Circuit"/> whose <see cref="Path"/> is formed from those of its operands.
         /// Every other <see cref="City"/> in the <see cref="Path"/> of the first operand is spliced in order with the remaining cities of the second.
         /// </summary>
-        /// <param name="circuitA">The <see cref="Circuit"/> whose every other <see cref="City"/> will be present in the result <see cref="Path"/>.</param>
+        /// <param name="circuitA">The <see cref="Circuit"/> whose <see cref="City"/> instances have a chance to be present in the result <see cref="Path"/>.</param>
         /// <param name="circuitB">The <see cref="Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="Path"/> indices.</param>
         /// <returns>A <see cref="Circuit"/> with a <see cref="Path"/> that combines the paths of its operands.</returns>
         /// <remarks>This binary operation is non-Abelian and does not alter its operands.</remarks>
