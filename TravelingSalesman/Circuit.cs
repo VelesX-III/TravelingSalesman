@@ -77,7 +77,7 @@ namespace TravelingSalesman
         /// <param name="circuitA">The <see cref="Circuit"/> whose every other <see cref="City"/> will be present in the result <see cref="Path"/>.</param>
         /// <param name="circuitB">The <see cref="Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="Path"/> indices.</param>
         /// <returns>A <see cref="Circuit"/> with a <see cref="Path"/> that combines the paths of its operands.</returns>
-        /// <remarks>This operation is non-Abelian and does not alter its operands.</remarks>
+        /// <remarks>This binary operation is non-Abelian and does not alter its operands.</remarks>
         public static Circuit operator *(Circuit circuitA, Circuit circuitB)
         {
             if (circuitA.Path.Count == 0 || circuitB.Path.Count == 0 || circuitA.Path.Count != circuitB.Path.Count)
@@ -105,9 +105,16 @@ namespace TravelingSalesman
                     cities[i] = queue.Dequeue();
                 }
             }
-
             return new Circuit(cities);
         }
+        /// <summary>
+        /// Compares two <see cref="Circuit"/>s and returns the one with lower <see cref="Distance"/> traveled.
+        /// </summary>
+        /// <param name="circuitA">A <see cref="Circuit"/> to compare.</param>
+        /// <param name="circuitB">A <see cref="Circuit"/> to compare.</param>
+        /// <returns>The <see cref="Circuit"/> that has lower total <see cref="Distance"/> traveled.</returns>
+        /// <remarks>This binary operation is Abelian and returns one of its operands.</remarks>
+        public static Circuit operator -(Circuit circuitA, Circuit circuitB) => circuitA.Distance <= circuitB.Distance ? circuitA : circuitB;
     }
     /// <summary>
     /// Represents a capital city as a vertex.

@@ -54,7 +54,16 @@
             <param name="circuitA">The <see cref="T:TravelingSalesman.Circuit"/> whose every other <see cref="T:TravelingSalesman.City"/> will be present in the result <see cref="P:TravelingSalesman.Circuit.Path"/>.</param>
             <param name="circuitB">The <see cref="T:TravelingSalesman.Circuit"/> whose remaining cities will be inserted in order into the remaining null <see cref="P:TravelingSalesman.Circuit.Path"/> indices.</param>
             <returns>A <see cref="T:TravelingSalesman.Circuit"/> with a <see cref="P:TravelingSalesman.Circuit.Path"/> that combines the paths of its operands.</returns>
-            <remarks>This operation is non-Abelian and does not alter its operands.</remarks>
+            <remarks>This binary operation is non-Abelian and does not alter its operands.</remarks>
+        </member>
+        <member name="M:TravelingSalesman.Circuit.op_Subtraction(TravelingSalesman.Circuit,TravelingSalesman.Circuit)">
+            <summary>
+            Compares two <see cref="T:TravelingSalesman.Circuit"/>s and returns the one with lower <see cref="P:TravelingSalesman.Circuit.Distance"/> traveled.
+            </summary>
+            <param name="circuitA">A <see cref="T:TravelingSalesman.Circuit"/> to compare.</param>
+            <param name="circuitB">A <see cref="T:TravelingSalesman.Circuit"/> to compare.</param>
+            <returns>The <see cref="T:TravelingSalesman.Circuit"/> that has lower total <see cref="P:TravelingSalesman.Circuit.Distance"/> traveled.</returns>
+            <remarks>This binary operation is Abelian and returns one of its operands.</remarks>
         </member>
         <member name="T:TravelingSalesman.City">
             <summary>
@@ -96,7 +105,7 @@
             <summary>
             Permutes the collection's elements randomly.
             </summary>
-            <typeparam name="T">The generic type parameter of the collection.</typeparam>
+            <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
             <param name="collection">The collection to permute.</param>
             <returns>A generic <see cref="T:System.Collections.Generic.List`1"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
         </member>
@@ -104,7 +113,7 @@
             <summary>
             Permutes the collection's elements randomly.
             </summary>
-            <typeparam name="T">The generic type parameter of the collection.</typeparam>
+            <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
             <param name="collection">The collection to permute.</param>
             <returns>A generic <see cref="T:System.Collections.Generic.IEnumerable`1"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
         </member>
@@ -112,7 +121,7 @@
             <summary>
             Permutes the elements between and including the start and end indices randomly.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
             <param name="collection">The collection to permute.</param>
             <param name="startIndex">The start of the range of elements to permute.</param>
             <param name="endIndex">The end of the range of elements to permute.</param>
@@ -122,11 +131,27 @@
             <summary>
             Permutes the elements between and including the start and end indices randomly.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
             <param name="collection">The collection to permute.</param>
             <param name="startIndex">The start of the range of elements to permute.</param>
             <param name="endIndex">The end of the range of elements to permute.</param>
             <returns>A generic <see cref="T:System.Collections.Generic.IEnumerable`1"/> of type <typeparamref name="T"/> with the specified range permuted.</returns>
+        </member>
+        <member name="M:TravelingSalesman.Extensions.RandomChoice``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Selects a random element from the <paramref name="collection"/> and returns it.
+            </summary>
+            <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
+            <param name="collection">The collection to select from.</param>
+            <returns>A random element of <paramref name="collection"/> of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:TravelingSalesman.Extensions.RandomChoice``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Selects a random element from the <paramref name="collection"/> and returns it.
+            </summary>
+            <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
+            <param name="collection">The collection to select from.</param>
+            <returns>A random element of <paramref name="collection"/> of type <typeparamref name="T"/>.</returns>
         </member>
     </members>
 </doc>

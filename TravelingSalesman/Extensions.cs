@@ -18,7 +18,7 @@ namespace TravelingSalesman
         /// <summary>
         /// Permutes the collection's elements randomly.
         /// </summary>
-        /// <typeparam name="T">The generic type parameter of the collection.</typeparam>
+        /// <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
         /// <param name="collection">The collection to permute.</param>
         /// <returns>A generic <see cref="List{T}"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
         public static List<T> Permute<T>(this List<T> collection)
@@ -38,7 +38,7 @@ namespace TravelingSalesman
         /// <summary>
         /// Permutes the collection's elements randomly.
         /// </summary>
-        /// <typeparam name="T">The generic type parameter of the collection.</typeparam>
+        /// <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
         /// <param name="collection">The collection to permute.</param>
         /// <returns>A generic <see cref="IEnumerable{T}"/> of type <typeparamref name="T"/> with its elements permuted.</returns>
         public static IEnumerable<T> Permute<T>(this IEnumerable<T> collection)
@@ -59,7 +59,7 @@ namespace TravelingSalesman
         /// <summary>
         /// Permutes the elements between and including the start and end indices randomly.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
         /// <param name="collection">The collection to permute.</param>
         /// <param name="startIndex">The start of the range of elements to permute.</param>
         /// <param name="endIndex">The end of the range of elements to permute.</param>
@@ -89,7 +89,7 @@ namespace TravelingSalesman
         /// <summary>
         /// Permutes the elements between and including the start and end indices randomly.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
         /// <param name="collection">The collection to permute.</param>
         /// <param name="startIndex">The start of the range of elements to permute.</param>
         /// <param name="endIndex">The end of the range of elements to permute.</param>
@@ -117,5 +117,20 @@ namespace TravelingSalesman
             }
             return results;
         }
+        /// <summary>
+        /// Selects a random element from the <paramref name="collection"/> and returns it.
+        /// </summary>
+        /// <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
+        /// <param name="collection">The collection to select from.</param>
+        /// <returns>A random element of <paramref name="collection"/> of type <typeparamref name="T"/>.</returns>
+        public static T RandomChoice<T>(this List<T> collection) => collection[Random.Next(0, collection.Count)];
+        /// <summary>
+        /// Selects a random element from the <paramref name="collection"/> and returns it.
+        /// </summary>
+        /// <typeparam name="T">The generic type parameter of the <paramref name="collection"/>.</typeparam>
+        /// <param name="collection">The collection to select from.</param>
+        /// <returns>A random element of <paramref name="collection"/> of type <typeparamref name="T"/>.</returns>
+        public static T RandomChoice<T>(this IEnumerable<T> collection) => collection.ElementAt(Random.Next(0, collection.Count()));
+
     }
 }
