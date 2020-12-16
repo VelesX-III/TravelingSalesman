@@ -10,14 +10,15 @@ namespace TravelingSalesman
     {
         static void Main(string[] args)
         {
-            List<Circuit> individuals = new List<Circuit>(); //Contains the population.
             const int population = 100; //The total population limit and number of initial solutions.
             const int iterations = 100000; //The total number of iterations.
             const int elites = 2; //The total number of most optimal solutions to bypass tournament selection at each iteration.
             const double mutationRate = .7; //The chance of a randomly sized portion of cities being shuffled when producing a child.
+
+            List<Circuit> individuals = new List<Circuit>(); //Contains the population.
+            Random random = new Random(); //Used for random number generation.
             Mutex writeAccess = new System.Threading.Mutex(); //Control access to standard output.
             Task.Run(() => { Console.ReadLine(); writeAccess.WaitOne(); individuals.First().PrintPath(); Environment.Exit(0); }); //Listen for early exit sequence.
-            Random random = new Random(); //Used for random number generation.
 
             for (int i = 0; i < population; i++)
             { individuals.Add(new Circuit().Initialize()); }
