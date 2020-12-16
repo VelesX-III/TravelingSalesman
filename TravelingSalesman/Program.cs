@@ -10,39 +10,44 @@ namespace TravelingSalesman
     {
         static void Main(string[] args)
         {
-            List<Circuit> individuals = new List<Circuit>();
+            List<Circuit> individuals = new List<Circuit>(); //Contains the population.
             const int population = 100; //The total population limit and number of initial solutions.
             const int iterations = 100000; //The total number of iterations.
-            const int elites = 10; //The total number of most optimal solutions to bypass tournament selection at each iteration.
-            const double mutationRate = .2; //The chance of a randomly sized portion of cities being shuffled.
-            Mutex writeAccess = new System.Threading.Mutex();
-            Random random = new Random();
+            const int elites = 2; //The total number of most optimal solutions to bypass tournament selection at each iteration.
+            const double mutationRate = .7; //The chance of a randomly sized portion of cities being shuffled when producing a child.
+            Mutex writeAccess = new System.Threading.Mutex(); //Control access to standard output.
+            Task.Run(() => { Console.ReadLine(); writeAccess.WaitOne(); individuals.First().PrintPath(); Environment.Exit(0); }); //Listen for early exit sequence.
+            Random random = new Random(); //Used for random number generation.
 
             for (int i = 0; i < population; i++) { individuals.Add(new Circuit().Initialize()); }
-            double latestDistance = individuals.Max(i => i.Distance);
-            Task.Run(() => { Console.ReadLine(); writeAccess.WaitOne(); individuals.First().Path.ForEach(c => Console.WriteLine(c)); Environment.Exit(0); });
+            double latestDistance = individuals.Min(i => i.Distance);
             for (int i = 0; i < iterations; i++)
             {
                 individuals = individuals.OrderBy(c => c.Distance).ToList(); //This will allow us to match the best with the worst.
-                writeAccess.WaitOne(); Console.WriteLine(individuals.First().Distance); writeAccess.ReleaseMutex();
+                #region User Interaction
+                writeAccess.WaitOne();
+                Console.WriteLine(individuals.First().Distance);
+                writeAccess.ReleaseMutex();
                 if (individuals.First().Distance != latestDistance)
                 {
                     latestDistance = individuals.First().Distance;
                     Task.Run(() => Console.Beep()); //Beep asynchrnously so you don't slow the program down.
                 }
+                #endregion User Interaction
                 for (int j = 0; j < population; j++)
                 {
-                    //Create children from two parents.
+                    //Create children from two parents. Note the "*" operator.
                     Circuit child = individuals[j] * individuals[(population - 1) - j];
-                    //Roll for mutation.
+                    //Roll for mutation. Randomly select a contiguous range of elements to permute.
                     if (random.NextDouble() < mutationRate)
                     {
-                        int upperBound = random.Next(0, child.Path.Count); int lowerBound = random.Next(0, upperBound);
+                        int upperBound = random.Next(0, child.Path.Count);
+                        int lowerBound = random.Next(0, upperBound);
                         child.Path = child.Path.PermutePart(lowerBound, upperBound);
                     }
                     individuals.Add(child);
                 }
-                //Perform a tournament selection with random matching.
+                //Perform a tournament selection with random matching. Note the "-" operator.
                 List<Circuit> nextGeneration = new List<Circuit>();
                 for (int j = 0; j < population - elites; j++) { nextGeneration.Add(individuals.RandomChoice() - individuals.RandomChoice()); }
                 //Automatically include the elites.
@@ -51,7 +56,7 @@ namespace TravelingSalesman
             }
             individuals = individuals.OrderBy(c => c.Distance).ToList();
             Console.WriteLine(individuals.First().Distance);
-            individuals.First().Path.ForEach(c => Console.WriteLine(c));
+            individuals.First().PrintPath();
         }
     }
 }

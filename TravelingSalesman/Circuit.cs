@@ -67,7 +67,7 @@ namespace TravelingSalesman
         {
             for (int i = 0; i < Path.Count; i++)
             {
-                Console.WriteLine(Path[i].State + "~" + Path[(i + 1) % Path.Count].State);
+                Console.WriteLine(Path[i].State + " -> " + Path[(i + 1) % Path.Count].State);
             }
         }
         /// <summary>
@@ -87,7 +87,7 @@ namespace TravelingSalesman
 
             City[] cities = new City[circuitA.Path.Count];
             List<City> remainder = circuitB.Path.ToList(); //Seems redundant, but forces copy-initialization.
-            double threshold = Random.NextDouble();
+            double threshold = .5;
             for (int i = 0; i < circuitA.Path.Count; i++)
             {
                 if (Random.NextDouble() <= threshold)
@@ -115,6 +115,11 @@ namespace TravelingSalesman
         /// <returns>The <see cref="Circuit"/> that has lower total <see cref="Distance"/> traveled.</returns>
         /// <remarks>This binary operation is Abelian and returns one of its operands.</remarks>
         public static Circuit operator -(Circuit circuitA, Circuit circuitB) => circuitA.Distance <= circuitB.Distance ? circuitA : circuitB;
+        /// <summary>
+        /// Represents the <see cref="Distance"/> traveled along the <see cref="Path"/> as a string.
+        /// </summary>
+        /// <returns>The <see cref="Distance"/> as a string.</returns>
+        public override string ToString() => Distance.ToString();
     }
     /// <summary>
     /// Represents a capital city as a vertex.

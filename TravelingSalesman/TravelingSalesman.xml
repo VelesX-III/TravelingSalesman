@@ -65,6 +65,12 @@
             <returns>The <see cref="T:TravelingSalesman.Circuit"/> that has lower total <see cref="P:TravelingSalesman.Circuit.Distance"/> traveled.</returns>
             <remarks>This binary operation is Abelian and returns one of its operands.</remarks>
         </member>
+        <member name="M:TravelingSalesman.Circuit.ToString">
+            <summary>
+            Represents the <see cref="P:TravelingSalesman.Circuit.Distance"/> traveled along the <see cref="P:TravelingSalesman.Circuit.Path"/> as a string.
+            </summary>
+            <returns>The <see cref="P:TravelingSalesman.Circuit.Distance"/> as a string.</returns>
+        </member>
         <member name="T:TravelingSalesman.City">
             <summary>
             Represents a capital city as a vertex.

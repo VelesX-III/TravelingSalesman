@@ -69,7 +69,19 @@ namespace TravelingSalesman
             Dictionary<double, T> keyValuePairs = new Dictionary<double, T>();
             for (int i = startIndex; i <= endIndex; i++)
             {
-                keyValuePairs.Add(Random.NextDouble(), collection[i]);
+                try
+                {
+                    keyValuePairs.Add(Random.NextDouble(), collection[i]);
+                }
+                catch (ArgumentException)
+                {
+                    double key = Random.NextDouble();
+                    while (keyValuePairs.Keys.Contains(key))
+                    {
+                        key = Random.NextDouble();
+                    }
+                    keyValuePairs.Add(key, collection[i]);
+                }
             }
             List<T> results = new List<T>();
             for (int i = 0; i < startIndex; i++)
